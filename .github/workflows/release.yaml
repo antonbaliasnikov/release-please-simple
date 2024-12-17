@@ -24,4 +24,3 @@ jobs:
       org-owner: 'antonbaliasnikov'                    # Specify the organization owner if you want update ownership of the crates
       update-cargo-lock: true                          # Update Cargo.lock file
       publish-to-crates-io: true                       # Enable publishing to crates.io
-      workspace-dirs: 'crates'                         # For the monorepo, specify the workspace directory if crates are not in the root directory

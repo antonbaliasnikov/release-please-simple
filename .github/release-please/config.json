@@ -6,7 +6,13 @@
   "release-type": "simple",
   "packages": {
     ".": {
-      "component": "release-please-simple"
+      "component": "release-please-simple",
+      "extra-files": [
+        {
+          "type": "generic",
+          "path": "Cargo.toml"
+        }
+      ]
     }
   }
 }
