@@ -1,0 +1,27 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+
+  release:
+    uses: matter-labs/zksync-ci-common/.github/workflows/release-please.yaml@aba-release-please-support
+    secrets:
+      gh_token: ${{ secrets.GITHUB_TOKEN }}
+      cargo_registry_token: ${{ secrets.CRATES_IO_TOKEN }}
+      slack_webhook: ${{ secrets.SLACK_WEBHOOK }}
+    with:
+      manifest: '.github/release-please/manifest.json' # Specify the path to the manifest file
+      config: '.github/release-please/config.json'     # Specify the path to the configuration file
+      org-owner: 'antonbaliasnikov'                    # Specify the organization owner if you want update ownership of the crates
+      update-cargo-lock: true                          # Update Cargo.lock file
+      publish-to-crates-io: true                       # Enable publishing to crates.io
+      workspace-dirs: 'crates'                         # For the monorepo, specify the workspace directory if crates are not in the root directory
