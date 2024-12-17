@@ -5,7 +5,7 @@ members = [
 ]
 
 [workspace.dependencies]
-rp-simple-3 = { version = "0.1.6", path = "crates/rp-simple-3" }
+rp-simple-3 = { version = "0.1.7", path = "crates/rp-simple-3" }
 
 [workspace.package]
 version = "0.1.7" # x-release-please-version
