@@ -26,7 +26,7 @@ jobs:
         uses: moonrepo/setup-rust@v1
 
       - name: Build
-        run: cargo build --locked
+        run: cargo build
 
       - name: Run tests
         run: cargo test
