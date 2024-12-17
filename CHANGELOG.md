@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.2](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.1...release-please-simple-v0.1.2) (2024-12-17)
+
+
+### Features
+
+* rename crates ([1961af3](https://github.com/antonbaliasnikov/release-please-simple/commit/1961af33e72f0f28c957a4e67a6ce7351aa8fa13))
+* update rp simple 3 ([57777b1](https://github.com/antonbaliasnikov/release-please-simple/commit/57777b1e7911823c718e64271d83d050820c2ab2))
+
 ## [0.1.1](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.0...release-please-simple-v0.1.1) (2024-12-17)
 
 
