@@ -1,0 +1,12 @@
+version: 2
+updates:
+  # Update Rust dependencies
+  - package-ecosystem: "cargo" # Specifies that this is a Rust project
+    directory: "/"            # Root directory of the repository
+    schedule:
+      interval: "daily"       # Check for updates on a weekly basis
+    labels:
+      - "dependencies"        # Add a label to PRs for Rust dependency updates
+    commit-message:
+      prefix: "chore"         # Prefix for commit messages
+      include: "scope"        # Include the scope in the commit message
