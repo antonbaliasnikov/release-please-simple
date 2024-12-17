@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.4](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.3...release-please-simple-v0.1.4) (2024-12-17)
+
+
+### Bug Fixes
+
+* upgrade dependencies test ([7a4fdec](https://github.com/antonbaliasnikov/release-please-simple/commit/7a4fdec7646634900c2e508f0267c7d657f12107))
+
 ## [0.1.3](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.2...release-please-simple-v0.1.3) (2024-12-17)
 
 
