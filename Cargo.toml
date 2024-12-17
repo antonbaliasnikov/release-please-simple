@@ -8,7 +8,7 @@ members = [
 core-test-1 = { version = "0.1.0", path = "crates/core-test-1" }
 
 [workspace.package]
-version = "0.1.0" # x-release-please-version
+version = "0.1.1" # x-release-please-version
 authors = [
     "Anton Baliasnikov <aba@matterlabs.dev>",
 ]
