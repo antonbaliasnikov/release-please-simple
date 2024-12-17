@@ -5,7 +5,7 @@ members = [
 ]
 
 [workspace.dependencies]
-core-test-1 = { version = "=0.1.0", path = "crates/core-test-1" }
+core-test-1 = { version = "0.1.0", path = "crates/core-test-1" }
 
 [workspace.package]
 version = "0.1.0" # x-release-please-version
