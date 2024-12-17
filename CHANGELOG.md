@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.1.3](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.2...release-please-simple-v0.1.3) (2024-12-17)
+
+
+### Features
+
+* update rp simple 3 ([74ea0fd](https://github.com/antonbaliasnikov/release-please-simple/commit/74ea0fd775a7557f257b93933293fd834e5cecfb))
+
 ## [0.1.2](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.1...release-please-simple-v0.1.2) (2024-12-17)
 
 
