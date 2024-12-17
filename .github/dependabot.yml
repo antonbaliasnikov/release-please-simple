@@ -1,6 +1,5 @@
 version: 2
 updates:
-  # Update Rust dependencies
   - package-ecosystem: "cargo" # Specifies that this is a Rust project
     directory: "/"            # Root directory of the repository
     schedule:
