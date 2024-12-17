@@ -1,10 +1,10 @@
 [package]
-name = "core-test-2"
+name = "rp-simple-1"
 version.workspace = true
 authors.workspace = true
 license.workspace = true
 edition.workspace = true
-description = "Core test 2"
+description = "Release please simple 1"
 
 [dependencies]
-core-test-1.workspace = true
+rp-simple-3.workspace = true

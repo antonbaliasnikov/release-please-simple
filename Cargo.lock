@@ -3,16 +3,19 @@
 version = 4
 
 [[package]]
-name = "core-test-1"
-version = "0.1.1"
-
-[[package]]
-name = "core-test-2"
+name = "rp-simple-1"
 version = "0.1.1"
 dependencies = [
- "core-test-1",
+ "rp-simple-3",
 ]
 
 [[package]]
-name = "core-test-3"
+name = "rp-simple-2"
+version = "0.1.1"
+dependencies = [
+ "rp-simple-3",
+]
+
+[[package]]
+name = "rp-simple-3"
 version = "0.1.1"
