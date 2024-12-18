@@ -19,5 +19,5 @@ jobs:
       config: '.github/release-please/config.json'     # Specify the path to the configuration file
       org-owner: 'antonbaliasnikov'                    # Specify the organization owner if you want update ownership of the crates
       update-cargo-lock: true                          # Update Cargo.lock file
-      publish-to-crates-io: true                       # Enable publishing to crates.io
-      upgrade-dependencies: true                       # Upgrade workspace dependencies
+      publish-to-crates-io: false                      # Enable publishing to crates.io
+      upgrade-dependencies: false                      # Upgrade workspace dependencies
