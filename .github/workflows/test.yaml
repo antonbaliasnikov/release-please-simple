@@ -20,45 +20,44 @@ jobs:
     steps:
 
       - name: Linux ARM setup
-        if: matrix.target == 'aarch64-unknown-linux-gnu'
         run: |
-            set -x
-            ls -l /etc/apt/sources.list
-            ls -l /etc/apt/sources.list.d
-            cat /etc/apt/sources.list.d/ubuntu.sources
-            ls -l /etc/apt/sources.list.d/ubuntu.sources
-          
-            echo 'updating'
-            sudo echo 'Types: deb
-            URIs: http://ports.ubuntu.com/ubuntu-ports/
-            Suites: noble noble-updates noble-backports
-            Components: main restricted universe multiverse
-            Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-            Types: deb
-            URIs: http://ports.ubuntu.com/ubuntu-ports/
-            Suites: noble-security
-            Components: main restricted universe multiverse
-            Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg' >> /tmp/ubuntu.sources-none
-          
-            cat /tmp/ubuntu.sources-none
-            sudo echo '#foo-sources.list' >> /etc/apt/sources.list
-            sudo echo '#foo-sources.list.d' >> /etc/apt/sources.list.d/ubuntu.sources-none
-            sudo echo '#foosources.list.d-ubuntu' >> /etc/apt/sources.list.d/ubuntu.sources
-          
-            echo 'updating2'
-            sudo echo 'Types: deb
-            URIs: http://ports.ubuntu.com/ubuntu-ports/
-            Suites: noble noble-updates noble-backports
-            Components: main restricted universe multiverse
-            Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
-            Types: deb
-            URIs: http://ports.ubuntu.com/ubuntu-ports/
-            Suites: noble-security
-            Components: main restricted universe multiverse
-            Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg' >> /etc/apt/sources.list.d/ubuntu.sources
-          
-            echo 'check'
-            cat /etc/apt/sources.list.d/ubuntu.sources
-            sudo dpkg --add-architecture arm64
-            sudo apt-get update -y
-            sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu libssl-dev:arm64
+          set -x
+          ls -l /etc/apt/sources.list
+          ls -l /etc/apt/sources.list.d
+          cat /etc/apt/sources.list.d/ubuntu.sources
+          ls -l /etc/apt/sources.list.d/ubuntu.sources
+          echo 'updating'
+          sudo echo 'Types: deb
+          URIs: http://ports.ubuntu.com/ubuntu-ports/
+          Suites: noble noble-updates noble-backports
+          Components: main restricted universe multiverse
+          Architectures: arm64
+          Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+          Types: deb
+          URIs: http://ports.ubuntu.com/ubuntu-ports/
+          Suites: noble-security
+          Components: main restricted universe multiverse
+          Architectures: arm64
+          Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg' >> /tmp/ubuntu.sources-none
+          cat /tmp/ubuntu.sources-none
+          echo '#foo-sources.list' | sudo dd of=/etc/apt/sources.list
+          echo '#foo-sources.list.d' | sudo dd of=/etc/apt/sources.list.d/ubuntu.sources-none
+          echo '#foosources.list.d-ubuntu' | sudo dd of=/etc/apt/sources.list.d/ubuntu.sources
+          echo 'updating2'
+          sudo echo 'Types: deb
+          URIs: http://ports.ubuntu.com/ubuntu-ports/
+          Suites: noble noble-updates noble-backports
+          Components: main restricted universe multiverse
+          Architectures: arm64
+          Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg
+          Types: deb
+          URIs: http://ports.ubuntu.com/ubuntu-ports/
+          Suites: noble-security
+          Components: main restricted universe multiverse
+          Architectures: arm64
+          Signed-By: /usr/share/keyrings/ubuntu-archive-keyring.gpg' | sudo dd of=/etc/apt/sources.list.d/ubuntu.sources
+          echo 'check'
+          cat /etc/apt/sources.list.d/ubuntu.sources
+          sudo dpkg --add-architecture arm64
+          sudo apt-get update -y
+          sudo apt-get install -y gcc-aarch64-linux-gnu g++-aarch64-linux-gnu libssl-dev:arm64
