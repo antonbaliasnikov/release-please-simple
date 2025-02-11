@@ -8,3 +8,4 @@ description = "Release please simple 1"
 
 [dependencies]
 rp-simple-3.workspace = true
+risc_v_simulator = { git = "https://github.com/matter-labs/air_compiler" }

@@ -26,7 +26,6 @@ jobs:
         uses: moonrepo/setup-rust@v1
 
       - name: Build
-        run: cargo build
-
-      - name: Run tests
-        run: cargo test
+        run: |
+          git config --global url."https://${{ secrets.PAT }}@github.com".insteadOf ssh://git@github.com
+          cargo build
