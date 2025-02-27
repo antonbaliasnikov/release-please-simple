@@ -15,3 +15,7 @@ authors = [
 description = "Test release-please simple."
 license = "MIT OR Apache-2.0"
 edition = "2021"
+
+[patch."https://github.com/matter-labs/air_compiler"]
+# risc_v_simulator = {git = "https://www.github.com/matter-labs/air_compiler.git", branch = "av_bigint_precompile" }
+risc_v_simulator = {git = "ssh://git@github.com/matter-labs/air_compiler.git", branch = "av_bigint_precompile" }

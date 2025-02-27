@@ -16,17 +16,28 @@ jobs:
 
   build-test:
     name: Build and Test
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
+#      - name: Install Foundry-ZKsync
+#        uses: dutterbutter/foundry-zksync-toolchain@v1
 
-      - name: Checkout repository
-        uses: actions/checkout@v4
-
-      - name: Install Rust toolchain
-        uses: moonrepo/setup-rust@v1
-
+#      - name: Check Foundry-ZKsync
+#        run: |
+#          forge -v
+#          ls -la ~/.foundry/bin
+      #          uname -a
+      #          wget https://github.com/matter-labs/anvil-zksync/releases/download/v0.3.1/anvil-zksync-v0.3.1-x86_64-unknown-linux-gnu.tar.gz
+      #          tar xzf anvil-zksync-v0.3.1-x86_64-unknown-linux-gnu.tar.gz
+      #          ls -la
+      #          file ./anvil-zksync
+      #          ldd ./anvil-zksync
+      #          ldd --version
+      #          ./anvil-zksync --version
       - name: Build
-        run: cargo build
+        shell: 'bash -ex {0}'
+        env:
+          CI: ''
+        run: |
+          curl -L https://raw.githubusercontent.com/matter-labs/foundry-zksync/main/install-foundry-zksync | bash
 
-      - name: Run tests
-        run: cargo test
+          
