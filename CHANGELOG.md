@@ -1,5 +1,21 @@
 # Changelog
 
+## [0.1.8](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.7...release-please-simple-v0.1.8) (2025-11-24)
+
+
+### Features
+
+* update rp simple 1 ([08702c2](https://github.com/antonbaliasnikov/release-please-simple/commit/08702c2db94beb9a599e73830d83999586d8c917))
+* update with notification ([3a566ea](https://github.com/antonbaliasnikov/release-please-simple/commit/3a566ea0fbba5d4441e6fe2d2b326d1517f0668f))
+
+
+### Bug Fixes
+
+* update simple 1 ([22c35d6](https://github.com/antonbaliasnikov/release-please-simple/commit/22c35d6733906426321797090f171f3b952b05ee))
+* update simple 1 ([e6c3fb0](https://github.com/antonbaliasnikov/release-please-simple/commit/e6c3fb0a0e06d7a352ad8390c0dc75f7cd3386f5))
+* update simple 1 ([9c652f6](https://github.com/antonbaliasnikov/release-please-simple/commit/9c652f6d74b7ae7477ee6dec5fce4d4585646afc))
+* update simple 1 ([b691ef0](https://github.com/antonbaliasnikov/release-please-simple/commit/b691ef039d133e85ace5dae6b283a6f18665aa18))
+
 ## [0.1.7](https://github.com/antonbaliasnikov/release-please-simple/compare/release-please-simple-v0.1.6...release-please-simple-v0.1.7) (2024-12-17)
 
 
