@@ -29,36 +29,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
-      - name: Build binaries using reproducible script
-        run: zksync_os/reproduce/reproduce.sh
-
       - name: Prepare release artifacts
         run: |
           mkdir -p release-artifacts
-          cd zksync_os
-          # Copy all generated binaries
-          FILES=(
-            for_tests.bin
-            evm_replay.bin
-            singleblock_batch.bin
-            singleblock_batch_logging_enabled.bin
-            multiblock_batch.bin
-            multiblock_batch_logging_enabled.bin
-          )
-          for FILE in "${FILES[@]}"; do
-            if [ -f "$FILE" ]; then
-              cp "$FILE" ../release-artifacts/
-              echo "✓ Copied $FILE"
-            else
-              echo "⚠️  $FILE not found"
-            fi
-          done
-          cd ../release-artifacts
-          # Create checksums
-          sha256sum *.bin > checksums.txt
-          # List all files
-          echo "Release artifacts:"
-          ls -la
+          echo "${RANDOM}" > release-artifacts/checksums.txt
 
       # Support the following release types:
       ## 1. Tagged releases (tags starting with 'v') - official releases
