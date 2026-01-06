@@ -90,7 +90,7 @@ jobs:
           | while read -r rel; do
               tag=$(jq -r '.tagName' <<<"${rel}")
               # Skip protected tags
-              if [[ "$tag" == "${LATEST_RELEASE}" ]] || [[ "$tag" == v* ]]; then
+              if [[ "$tag" == "${LATEST_RELEASE}" ]]; then
                 continue
               fi
               published=$(jq -r '.publishedAt // .createdAt' <<<"${rel}")
