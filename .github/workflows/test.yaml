@@ -34,7 +34,7 @@ jobs:
       - name: Prepare release artifacts
         run: |
           mkdir -p release-artifacts
-          echo "${RANDOM}" > checksums.txt
+          echo "${RANDOM}" > release-artifacts/checksums.txt
 
       # Support the following release types:
       ## 1. Tagged releases (tags starting with 'v') - official releases
