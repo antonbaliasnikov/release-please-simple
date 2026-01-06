@@ -4,12 +4,11 @@ on:
   release:
     types: [ published ]
   push:
-    # Update latest binaries on every push to main
-    branches:
-      - main
-    # Create releases on tags
-    tags:
-      - '*'
+    branches: [ main ]
+    tags: [ '*' ]
+    # ignore official release tags to avoid double-triggers
+    tags-ignore:
+      - 'v[0-9]*.[0-9]*.[0-9]*'
 
 permissions:
   contents: write
@@ -31,10 +30,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@8e8c483db84b4bee98b60c0593521ed34d9990e8 # v6.0.1
 
+      - name: Build binaries using reproducible script
+        run: zksync_os/reproduce/reproduce.sh
+
       - name: Prepare release artifacts
         run: |
           mkdir -p release-artifacts
-          echo "${RANDOM}" > release-artifacts/checksums.txt
+          cd zksync_os
+          # Copy all generated binaries
+          FILES=(
+            for_tests.bin
+            evm_replay.bin
+            singleblock_batch.bin
+            singleblock_batch_logging_enabled.bin
+            multiblock_batch.bin
+            multiblock_batch_logging_enabled.bin
+          )
+          for FILE in "${FILES[@]}"; do
+            if [ -f "$FILE" ]; then
+              cp "$FILE" ../release-artifacts/
+              echo "✓ Copied $FILE"
+            else
+              echo "⚠️  $FILE not found"
+            fi
+          done
+          cd ../release-artifacts
+          # Create checksums
+          sha256sum *.bin > checksums.txt
+          # List all files
+          echo "Release artifacts:"
+          ls -la
 
       # Support the following release types:
       ## 1. Tagged releases (tags starting with 'v') - official releases
@@ -64,18 +89,20 @@ jobs:
         if: github.event_name != 'release'
         run: |
           if gh release view "${{ steps.meta.outputs.tag_name }}" &>/dev/null; then
-            gh release delete "${LATEST_RELEASE}" --cleanup-tag --yes
+            gh release delete "${{ steps.meta.outputs.tag_name }}" --cleanup-tag --yes
           fi
 
       - name: Upload binaries to release
         uses: softprops/action-gh-release@a06a81a03ee405af7f2048a818ed3f03bbf83c7b # v2.5.0
         with:
           files: |
+            release-artifacts/*.bin
             release-artifacts/checksums.txt
           fail_on_unmatched_files: true
           tag_name: ${{ steps.meta.outputs.tag_name }}
           name: ${{ steps.meta.outputs.release_name }}
           prerelease: ${{ steps.meta.outputs.prerelease }}
+          target_commitish: ${{ github.sha }}
 
       - name: Delete old custom pre-releases
         env:
